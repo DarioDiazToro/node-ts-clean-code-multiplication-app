@@ -20,4 +20,3 @@ if (showTable) {
     console.log(tabla);
 };
 
-console.log("file created");

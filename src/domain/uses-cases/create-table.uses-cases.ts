@@ -16,11 +16,14 @@ export class CreateTable implements createTableUseCase {
 
     execute({ base, limit = 10 }: createTablOptions) {
         let outputMessage = "";
-        const headerMessage = `Tabla del ${base} \n`;
         for (let i = 1; i <= limit; i++) {
-            outputMessage += `${base} * ${i} = ${base * i}\n `;
+            outputMessage += `${base} * ${i} = ${base * i} `;
+
+            if (i < limit) {
+                outputMessage += "\n";
+            };
         };
 
-        return `${headerMessage}\n ${outputMessage}`;
+        return outputMessage;
     }
 };

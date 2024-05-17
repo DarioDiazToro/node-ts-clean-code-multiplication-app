@@ -7,18 +7,18 @@ interface RunOptions {
     limit: number;
     showTable: boolean;
     fileName: string;
-    destination: string;
+    fileDestination: string;
 };
 
 
 export class ServerApp {
 
-    static run({ base, limit, showTable, destination, fileName }: RunOptions) {
+    static run({ base, limit, showTable, fileDestination, fileName }: RunOptions) {
         console.log("server running...");
 
         const table = new CreateTable().execute({ base, limit });
         const wasCreated = new SaveFile()
-            .execute({ fileContent: table, destination, fileName });
+            .execute({ fileContent: table, fileDestination, fileName });
 
         if (showTable) console.log(table);
 
